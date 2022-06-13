@@ -1,16 +1,15 @@
 /** @format */
-
 const path = require("path");
-const { node } = require("webpack");
 
 module.exports = {
   // Inform webpack that we're building a bundle
   // for nodeJS, rather than for the browser
-  target: node,
+  target: "node",
 
   // tell webpack the root file of our
   // server application
   entry: "./src/index.js",
+
   // tell webpack where to put the output file
   // that is generated
   output: {
@@ -24,10 +23,13 @@ module.exports = {
       {
         // check for js files.
         test: /\.js?$/,
+
         // tell webpack which loader to use , in this case babel-loader.
         loader: "babel-loader",
+
         // tell webpack which directories to ignore, in this acse, node-modules.
         exclude: /node-modules/,
+
         options: {
           presets: [
             "react",
