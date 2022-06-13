@@ -9772,19 +9772,34 @@ if (process.env.NODE_ENV === 'production') {
 "use strict";
 
 
+var _express = __webpack_require__(72);
+
+var _express2 = _interopRequireDefault(_express);
+
+var _react = __webpack_require__(25);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _server = __webpack_require__(155);
+
+var _Home = __webpack_require__(166);
+
+var _Home2 = _interopRequireDefault(_Home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /** @format */
 
-var express = __webpack_require__(72);
-var React = __webpack_require__(25);
+var app = (0, _express2.default)();
 
-var renderToString = __webpack_require__(155).renderToString;
-var Home = __webpack_require__(166).default;
-var app = express();
+app.use(_express2.default.static("public"));
 
 app.get("/", function (req, res) {
-  var content = renderToString(React.createElement(Home, null));
+  var content = (0, _server.renderToString)(_react2.default.createElement(_Home2.default, null));
 
-  res.send(content);
+  var html = "\n    <html>\n      <head></head>\n      <body>\n        <div id=\"root\">" + content + "</div>\n        <script src=\"bundle.js\"> </script>\n      </body>\n    </html>\n    ";
+
+  res.send(html);
 });
 
 app.listen(3000, function () {
@@ -30467,7 +30482,18 @@ var Home = function Home() {
   return _react2.default.createElement(
     "div",
     null,
-    "I'm the SUPER BEST home component"
+    _react2.default.createElement(
+      "div",
+      null,
+      "I'm the SUPER BEST home component"
+    ),
+    _react2.default.createElement(
+      "button",
+      { onClick: function onClick() {
+          return console.log("Hello There!");
+        } },
+      "Press me!"
+    )
   );
 }; /** @format */
 
