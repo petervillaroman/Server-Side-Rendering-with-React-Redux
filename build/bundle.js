@@ -88,6 +88,8 @@ module.exports = require("redux");
 "use strict";
 
 
+__webpack_require__(18);
+
 var _express = __webpack_require__(4);
 
 var _express2 = _interopRequireDefault(_express);
@@ -102,7 +104,8 @@ var _createStore2 = _interopRequireDefault(_createStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = (0, _express2.default)(); /** @format */
+/** @format */
+var app = (0, _express2.default)();
 
 app.use(_express2.default.static("public"));
 
@@ -491,7 +494,7 @@ var UsersList = function (_Component) {
     _createClass(UsersList, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            // this.props.fetchUsers()
+            this.props.fetchUsers();
         }
     }, {
         key: 'renderUsers',
@@ -529,6 +532,12 @@ function mapStateToProps(state) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList);
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-polyfill");
 
 /***/ })
 /******/ ]);
