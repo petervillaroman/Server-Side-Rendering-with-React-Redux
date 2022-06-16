@@ -3,7 +3,7 @@
 import React from "react";
 import Home from "./components/Home";
 import Sample from "./components/SampleRoute";
-import UsersList from './components/UsersList';
+import UsersList, { loadData } from './components/UsersList';
 
 export default[
   {
@@ -13,6 +13,7 @@ export default[
     
   },
   {
+    loadData,
     path: '/users',
     component: UsersList,
 
