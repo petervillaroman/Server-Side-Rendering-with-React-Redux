@@ -10339,7 +10339,7 @@ var _Routes = __webpack_require__(490);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _reducers = __webpack_require__(495);
+var _reducers = __webpack_require__(496);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -32498,6 +32498,10 @@ var _UsersListPage = __webpack_require__(494);
 
 var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
 
+var _NotFoundPage = __webpack_require__(495);
+
+var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = [_extends({}, _App2.default, {
@@ -32506,7 +32510,7 @@ exports.default = [_extends({}, _App2.default, {
 		exact: true
 	}), _extends({}, _UsersListPage2.default, {
 		path: '/users'
-	})]
+	}), _extends({}, _NotFoundPage2.default)]
 })];
 
 /***/ }),
@@ -32778,13 +32782,46 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NotFoundPage = function NotFoundPage(_ref) {
+	var _ref$staticContext = _ref.staticContext,
+	    staticContext = _ref$staticContext === undefined ? {} : _ref$staticContext;
+
+	staticContext.notFound = true;
+	return _react2.default.createElement(
+		'h1',
+		null,
+		'Oops, route not found.'
+	);
+}; /** @format */
+
+exports.default = {
+	component: NotFoundPage
+};
+
+/***/ }),
+/* 496 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _redux = __webpack_require__(119);
 
-var _usersReducer = __webpack_require__(496);
+var _usersReducer = __webpack_require__(497);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
-var _authReducer = __webpack_require__(497);
+var _authReducer = __webpack_require__(498);
 
 var _authReducer2 = _interopRequireDefault(_authReducer);
 
@@ -32796,7 +32833,7 @@ exports.default = (0, _redux.combineReducers)({
 }); /** @format */
 
 /***/ }),
-/* 496 */
+/* 497 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32821,7 +32858,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 497 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
