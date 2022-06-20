@@ -550,7 +550,7 @@ module.exports = require("redux-thunk");
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _redux = __webpack_require__(5);
@@ -559,11 +559,16 @@ var _usersReducer = __webpack_require__(21);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
+var _authReducer = __webpack_require__(24);
+
+var _authReducer2 = _interopRequireDefault(_authReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-    users: _usersReducer2.default
-});
+	users: _usersReducer2.default,
+	auth: _authReducer2.default
+}); /** @format */
 
 /***/ }),
 /* 21 */
@@ -632,7 +637,7 @@ exports.default = {
 	component: App,
 	loadData: function loadData(_ref2) {
 		var dispatch = _ref2.dispatch;
-		return dispatch((0, _actions.fetchCurrentUser)());
+		return dispatch(_actions.fetchCurrentUser);
 	}
 };
 
@@ -653,11 +658,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(16);
 
+var _reactRedux = __webpack_require__(3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/** @format */
+var Header = function Header(_ref) {
+	var auth = _ref.auth;
 
-exports.default = function () {
+	console.log('My auth status is', auth);
 	return _react2.default.createElement(
 		'div',
 		null,
@@ -667,7 +675,40 @@ exports.default = function () {
 			' React SSR '
 		)
 	);
+}; /** @format */
+
+function mapStateToProps(_ref2) {
+	var auth = _ref2.auth;
+
+	return { auth: auth };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+exports.default = function () {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	var action = arguments[1];
+
+	switch (action.type) {
+		case _actions.FETCH_CURRENT_USER:
+			return action.payload.data || false;
+		default:
+			return state;
+	}
 };
+
+var _actions = __webpack_require__(4);
 
 /***/ })
 /******/ ]);
