@@ -1,23 +1,23 @@
 /** @format */
 
-import React from "react";
-import HomePage from "./pages/HomePage";
-import Sample from "./components/SampleRoute";
+import React from 'react';
+import HomePage from './pages/HomePage';
+import App from './App';
 import UsersListPage from './pages/UsersListPage';
 
-export default[
-  {
-    ...HomePage,
-    path: '/',
-    exact:true
-    
-  },
-  {
-    ...UsersListPage,
-    path: '/users',
-    
-
-  } 
- 
-  
+export default [
+	{
+		...App,
+		routes: [
+			{
+				...HomePage,
+				path: '/',
+				exact: true,
+			},
+			{
+				...UsersListPage,
+				path: '/users',
+			},
+		],
+	},
 ];
