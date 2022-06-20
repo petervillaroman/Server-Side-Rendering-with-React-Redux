@@ -32707,7 +32707,11 @@ var _Header = __webpack_require__(497);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _actions = __webpack_require__(184);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** @format */
 
 var App = function App(_ref) {
 	var route = _ref.route;
@@ -32718,10 +32722,14 @@ var App = function App(_ref) {
 		_react2.default.createElement(_Header2.default, null),
 		(0, _reactRouterConfig.renderRoutes)(route.routes)
 	);
-}; /** @format */
+};
 
 exports.default = {
-	component: App
+	component: App,
+	loadData: function loadData(_ref2) {
+		var dispatch = _ref2.dispatch;
+		return dispatch((0, _actions.fetchCurrentUser)());
+	}
 };
 
 /***/ }),
